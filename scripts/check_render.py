@@ -32,7 +32,7 @@ try:
             metrics = page.evaluate("""() => ({width: innerWidth,
                 documentWidth: document.documentElement.scrollWidth,
                 brokenImages: [...document.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.src)})""")
-            page.screenshot(path=str(OUT / f"home-{width}.png"), full_page=True)
+            page.screenshot(path=str(OUT / f"home-{width}.png"), full_page=True, animations="disabled")
             results.append(metrics)
             assert metrics["documentWidth"] <= width, metrics
             assert not metrics["brokenImages"], metrics
@@ -46,7 +46,7 @@ try:
             images = page.locator('img[src^="/images/rework_"]')
             assert images.count() == 4
             assert images.evaluate_all("images => images.every(i => i.complete && i.naturalWidth > 0)")
-            page.screenshot(path=str(OUT / "repaired-post-images.png"), full_page=True)
+            page.screenshot(path=str(OUT / "repaired-post-images.png"), full_page=True, animations="disabled")
             page.go_back(wait_until="networkidle")
             assert page.url == url
         browser.close()
