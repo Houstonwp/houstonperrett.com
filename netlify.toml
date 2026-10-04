@@ -1,5 +1,50 @@
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.167.0"
+
+# Keep legacy domain paths and use one HTTPS canonical origin.
+
 [[redirects]]
-from = "http://houstonperrett.com/*"
-to = "http://houstonp.com/:splat"
-status = 301
-force = true
+  from = "https://houstonperrett.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://houstonperrett.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.houstonperrett.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.houstonperrett.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.houstonp.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.houstonp.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://houstonp.com/*"
+  to = "https://houstonp.com/:splat"
+  status = 301
+  force = true
